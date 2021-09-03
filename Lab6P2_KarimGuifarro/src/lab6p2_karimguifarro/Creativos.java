@@ -5,7 +5,7 @@ public class Creativos extends Personas{
     private String ocupacion;
     private int edad;
 
-    public Creativos(String ocupacion, int edad, String usuario, String contraseña, String nombre, String apellido, String correo) {
+    public Creativos(String usuario, String contraseña, String nombre, String apellido, String correo,String ocupacion, int edad) {
         super(usuario, contraseña, nombre, apellido, correo);
         this.ocupacion = ocupacion;
         this.edad = edad;

@@ -15,7 +15,7 @@ public class Ejecutivos extends Personas{
     public Ejecutivos() {
     }
 
-    public Ejecutivos(String cargo, String titulo_U, String titulo_M, String usuario, String contraseña, String nombre, String apellido, String correo) {
+    public Ejecutivos(String usuario, String contraseña, String nombre, String apellido, String correo,String cargo, String titulo_U, String titulo_M) {
         super(usuario, contraseña, nombre, apellido, correo);
         this.cargo = cargo;
         this.titulo_U = titulo_U;
