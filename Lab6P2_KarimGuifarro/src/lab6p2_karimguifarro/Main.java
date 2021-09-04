@@ -5,8 +5,16 @@
  */
 package lab6p2_karimguifarro;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -103,14 +111,28 @@ public class Main extends javax.swing.JFrame {
         Musica = new javax.swing.JCheckBox();
         hogar = new javax.swing.JCheckBox();
         jButton6 = new javax.swing.JButton();
+        in = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt = new javax.swing.JTextArea();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        List = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        inuse = new javax.swing.JTextField();
-        contuse = new javax.swing.JTextField();
+        user = new javax.swing.JTextField();
+        conta = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+
+        Registro.setMinimumSize(new java.awt.Dimension(500, 366));
 
         jLabel14.setText("Usuario:");
 
@@ -551,6 +573,112 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING))
         );
 
+        in.setMinimumSize(new java.awt.Dimension(500, 366));
+
+        txt.setColumns(20);
+        txt.setRows(5);
+        jScrollPane1.setViewportView(txt);
+
+        jMenu1.setText("Archivo");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Guardar Archivo");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("Abrir Archivo");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setText("Listar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
+
+        in.setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout inLayout = new javax.swing.GroupLayout(in.getContentPane());
+        in.getContentPane().setLayout(inLayout);
+        inLayout.setHorizontalGroup(
+            inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        inLayout.setVerticalGroup(
+            inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Título 5", "Título 6", "Título 7"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout ListLayout = new javax.swing.GroupLayout(List.getContentPane());
+        List.getContentPane().setLayout(ListLayout);
+        ListLayout.setHorizontalGroup(
+            ListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 475, Short.MAX_VALUE)
+            .addGroup(ListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ListLayout.setVerticalGroup(
+            ListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(ListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -596,8 +724,8 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(inuse)
-                                    .addComponent(contuse, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))))))
+                                    .addComponent(user)
+                                    .addComponent(conta, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))))))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -608,11 +736,11 @@ public class Main extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(inuse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(contuse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(conta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -636,7 +764,21 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
        String us,co;
-       
+       String[] o;
+       String a,b;
+       us=user.getText();
+       co=conta.getText();
+       login ap
+                  = new login("./usuarios.txt");
+                ap.cargarArchivo();
+        for (log_in p : ap.getList()) {
+           o=ap.getList().toString().split("\\s");
+           a=o[0];
+           b=o[1];
+            if (a.contains(us) && b.contains(co)) {
+                in.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -658,8 +800,16 @@ public class Main extends javax.swing.JFrame {
         a.cargarArchivo();
         Estudiantes p 
                 = new Estudiantes (usuario, contraseña, nombre,apellido,correo, carrera,año_cursando,añoscar_cursando);
+         login ab = new login("./usuarios.txt");
+        
+        ab.cargarArchivo();
+        log_in b 
+                = new log_in (usuario,contraseña);
+        
+        ab.getList().add(b);
         a.getLista().add(p);
         try{
+            ab.escribirArchivo();
             a.escribirArchivo1();
        } catch(IOException ex){
         JOptionPane.showMessageDialog(null, "Error al guardar la usuario");
@@ -692,8 +842,16 @@ public class Main extends javax.swing.JFrame {
         a.cargarArchivo();
         Normales p 
                 = new Normales (usuario, contraseña, nombre,apellido,correo,Hobbie,h1,h2,h3,h4 );
+         login ab = new login("./usuarios.txt");
+        
+        ab.cargarArchivo();
+        log_in b 
+                = new log_in (usuario,contraseña);
+        
+        ab.getList().add(b);
         a.getLista().add(p);
         try{
+            ab.escribirArchivo();
             a.escribirArchivo1();
        } catch(IOException ex){
         JOptionPane.showMessageDialog(null, "Error al guardar la usuario");
@@ -712,11 +870,18 @@ public class Main extends javax.swing.JFrame {
        edad=(int) c_spin.getComponentCount();
        ocupacion=c_oc.getText();
         admincrea a = new admincrea("./"+usuario+".txt");
+         login ab = new login("./usuarios.txt");
         a.cargarArchivo();
+        ab.cargarArchivo();
         Creativos p 
                 = new Creativos (usuario, contraseña, nombre,apellido,correo,ocupacion,edad);
+        ab.cargarArchivo();
+        log_in b 
+                = new log_in (usuario,contraseña);
         a.getLista().add(p);
+        ab.getList().add(b);
         try{
+            
             a.escribirArchivo1();
        } catch(IOException ex){
         JOptionPane.showMessageDialog(null, "Error al guardar la usuario");
@@ -738,14 +903,109 @@ public class Main extends javax.swing.JFrame {
         a.cargarArchivo();
         Ejecutivos p 
                 = new Ejecutivos (usuario, contraseña, nombre,apellido,correo,cargo,titulo,maestria);
+        login ab = new login("./usuarios.txt");
+        ab.cargarArchivo();
+        log_in b 
+                = new log_in (usuario,contraseña);
+        ab.getList().add(b);
         a.getLista().add(p);
+        try{
+            ab.escribirArchivo();
+       } catch(IOException ex){
+        JOptionPane.showMessageDialog(null, "Error al guardar la usuario");
+        }
+        JOptionPane.showMessageDialog(null, "Usuario guardado exitosamente");
         try{
             a.escribirArchivo1();
        } catch(IOException ex){
         JOptionPane.showMessageDialog(null, "Error al guardar la usuario");
         }
         JOptionPane.showMessageDialog(null, "Usuario guardado exitosamente");
+                                    
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = 
+                    new FileNameExtensionFilter(
+                            "Archivos de Texto", "txt");
+         jfc.addChoosableFileFilter(filtro); 
+        int seleccion = jfc.showSaveDialog(this);        
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+             try {
+                 
+                  File fichero=null;
+                if (jfc.getFileFilter().getDescription().equals(
+                        "Archivos de Texto")) {
+                    fichero = 
+                        new File(jfc.getSelectedFile().getPath()+".txt");
+                }else{
+                    fichero = jfc.getSelectedFile();
+                }                             
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(txt.getText());
+                txt.setText("");
+                bw.flush();         
+                JOptionPane.showMessageDialog(this, 
+                        "Archivo guardado exitosamente");  
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                    bw.close();
+                    fw.close();
+                } catch (IOException ex) {
+           }                     
+        }//fin IF
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       File fichero = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        txt.setText("");
+        try {
+            JFileChooser jfc = new JFileChooser("./");
+            FileNameExtensionFilter filtro = 
+                    new FileNameExtensionFilter(
+                            "Archivos de Texto", "txt");
+            FileNameExtensionFilter filtro2 = 
+                new FileNameExtensionFilter(
+                        "Imagenes", "jpg", "png", "bmp");
+            jfc.setFileFilter(filtro);
+            jfc.addChoosableFileFilter(filtro2);            
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION)
+            {
+               fichero = jfc.getSelectedFile();
+               fr = new FileReader(fichero);
+               br=new BufferedReader(fr);
+               String linea;
+               txt.setText("");
+               while(  (linea=br.readLine()) !=null  ){                    
+                    txt.append(linea);
+                    txt.append("\n");
+                }
+            } //fin if
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            br.close();
+            fr.close();
+        } catch (IOException ex) {
+        }
+
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -785,6 +1045,7 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox Cocina;
     private javax.swing.JCheckBox Libros;
+    private javax.swing.JDialog List;
     private javax.swing.JCheckBox Musica;
     private javax.swing.JDialog Registro;
     private javax.swing.JTextField c_ap;
@@ -794,7 +1055,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField c_oc;
     private javax.swing.JSpinner c_spin;
     private javax.swing.JTextField c_us;
-    private javax.swing.JTextField contuse;
+    private javax.swing.JTextField conta;
     private javax.swing.JTextField e_ap;
     private javax.swing.JTextField e_ca;
     private javax.swing.JTextField e_con;
@@ -810,7 +1071,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField es_nom;
     private javax.swing.JTextField es_us;
     private javax.swing.JCheckBox hogar;
-    private javax.swing.JTextField inuse;
+    private javax.swing.JDialog in;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -850,12 +1111,21 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField no_ap;
     private javax.swing.JTextField no_con;
     private javax.swing.JTextField no_cor;
@@ -864,5 +1134,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField no_us;
     private javax.swing.JSpinner spin1;
     private javax.swing.JSpinner spin2;
+    private javax.swing.JTextArea txt;
+    private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
+ArrayList<log_in> log=new ArrayList();
 }

@@ -29,7 +29,7 @@ public class Creativos extends Personas{
 
     @Override
     public String toString() {
-        return "Creativos{" + "ocupacion=" + ocupacion + ", edad=" + edad + '}';
+        return "Creativos{"+ super.toString() + "ocupacion=" + ocupacion + ", edad=" + edad + '}';
     }
     
 }
